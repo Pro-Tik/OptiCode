@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OptiCode | Precision Software Engineering</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            400: '#38bdf8', // Cyan/Blue accent
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            900: '#0c4a6e',
+                            dark: '#0f172a', // Slate 900
+                            darker: '#020617', // Slate 950
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .code-bg {
+            background-image: radial-gradient(#1e293b 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+        .glow {
+            box-shadow: 0 0 20px rgba(56, 189, 248, 0.15);
+        }
+        /* Mobile Menu Transition */
+        #mobile-menu {
+            transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+        }
+        #mobile-menu.open {
+            max-height: 400px;
+            opacity: 1;
+        }
+    </style>
+</head>
+<body class="bg-brand-darker text-slate-300 font-sans antialiased selection:bg-brand-500 selection:text-white">
+
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 bg-brand-darker/90 backdrop-blur-md border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 cursor-pointer" onclick="window.scrollTo(0,0)">
+                    <span class="text-2xl font-bold text-white tracking-tighter flex items-center gap-2">
+                        <svg class="w-8 h-8 text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+                        Opti<span class="text-brand-400">Code</span>
+                    </span>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#home" class="hover:text-brand-400 transition-colors px-3 py-2 rounded-md text-sm font-medium">Home</a>
+                        <a href="#services" class="hover:text-brand-400 transition-colors px-3 py-2 rounded-md text-sm font-medium">Services</a>
+                        <a href="#process" class="hover:text-brand-400 transition-colors px-3 py-2 rounded-md text-sm font-medium">Our Process</a>
+                        <a href="#contact" class="bg-brand-600 hover:bg-brand-500 text-white px-5 py-2 rounded-full text-sm font-medium transition-all shadow-lg shadow-brand-500/20">Get a Quote</a>
+                    </div>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="-mr-2 flex md:hidden">
+                    <button type="button" onclick="toggleMenu()" class="inline-flex items-center justify-center p-2 rounded-md text-slate-400 hover:text-white hover:bg-slate-800 focus:outline-none">
+                        <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div class="md:hidden bg-brand-dark border-b border-slate-800" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#home" onclick="toggleMenu()" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-slate-800">Home</a>
+                <a href="#services" onclick="toggleMenu()" class="block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:text-white hover:bg-slate-800">Services</a>
+                <a href="#process" onclick="toggleMenu()" class="block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:text-white hover:bg-slate-800">Process</a>
+                <a href="#contact" onclick="toggleMenu()" class="block px-3 py-2 rounded-md text-base font-medium text-brand-400 hover:bg-slate-800">Contact Us</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
+        <div class="absolute inset-0 code-bg opacity-20"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-800/50 border border-slate-700 text-brand-400 text-sm font-mono mb-8">
+                <span class="w-2 h-2 rounded-full bg-brand-500 animate-pulse"></span>
+                v2.0: Now Accepting New Clients
+            </div>
+            <h1 class="text-5xl md:text-7xl font-bold text-white tracking-tight mb-6">
+                Optimized for <br>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-400 to-indigo-500">Digital Excellence</span>
+            </h1>
+            <p class="mt-4 max-w-2xl mx-auto text-xl text-slate-400 mb-10">
+                OptiCode transforms complex challenges into elegant, high-performance software. We build systems that scale, perform, and endure.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#contact" class="px-8 py-4 bg-white text-brand-900 font-bold rounded-lg hover:bg-brand-50 transition-colors shadow-lg shadow-white/10">
+                    Start Your Project
+                </a>
+                <a href="#services" class="px-8 py-4 border border-slate-700 text-slate-300 font-medium rounded-lg hover:border-brand-400 hover:text-brand-400 transition-colors">
+                    Explore Services
+                </a>
+            </div>
+            
+            <!-- Code Snippet Decoration -->
+            <div class="mt-16 mx-auto max-w-3xl transform hover:scale-[1.01] transition-transform duration-500">
+                <div class="rounded-xl overflow-hidden bg-slate-900 border border-slate-800 shadow-2xl glow">
+                    <div class="flex items-center px-4 py-3 bg-slate-800/50 border-b border-slate-800">
+                        <div class="flex space-x-2">
+                            <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                            <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                            <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                        </div>
+                        <div class="ml-4 text-xs text-slate-500 font-mono">optimizer.ts</div>
+                    </div>
+                    <div class="p-6 text-left font-mono text-sm sm:text-base overflow-x-auto">
+                        <div class="text-slate-400"><span class="text-purple-400">const</span> <span class="text-blue-400">optiCode</span> = <span class="text-yellow-300">async</span> (clientVision) => {</div>
+                        <div class="text-slate-400 pl-4"><span class="text-purple-400">const</span> solution = <span class="text-purple-400">await</span> <span class="text-blue-400">analyze</span>(clientVision);</div>
+                        <div class="text-slate-400 pl-4"><span class="text-purple-400">while</span> (!solution.isPerfect) {</div>
+                        <div class="text-slate-400 pl-8">solution.<span class="text-blue-400">optimize</span>({ speed: <span class="text-orange-400">'max'</span>, bugs: <span class="text-orange-400">0</span> });</div>
+                        <div class="text-slate-400 pl-4">}</div>
+                        <div class="text-slate-400 pl-4"><span class="text-purple-400">return</span> solution.<span class="text-blue-400">deploy</span>();</div>
+                        <div class="text-slate-400">};</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-24 bg-slate-900 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-brand-400 font-semibold tracking-wide uppercase text-sm">Our Expertise</h2>
+                <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-white sm:text-4xl">
+                    Engineered for Impact
+                </p>
+                <p class="mt-4 max-w-2xl text-xl text-slate-400 mx-auto">
+                    We don't do cookie-cutter. We build tailored solutions for specific business needs.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="p-8 bg-brand-darker rounded-2xl border border-slate-800 hover:border-brand-500/50 transition-all duration-300 group">
+                    <div class="w-12 h-12 bg-brand-900/50 rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <svg class="w-6 h-6 text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Web Applications</h3>
+                    <p class="text-slate-400">High-performance React and Next.js applications that load instantly and rank high on SEO.</p>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="p-8 bg-brand-darker rounded-2xl border border-slate-800 hover:border-brand-500/50 transition-all duration-300 group">
+                    <div class="w-12 h-12 bg-brand-900/50 rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <svg class="w-6 h-6 text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Mobile Solutions</h3>
+                    <p class="text-slate-400">Native-feel cross-platform apps using Flutter and React Native. iOS and Android coverage.</p>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="p-8 bg-brand-darker rounded-2xl border border-slate-800 hover:border-brand-500/50 transition-all duration-300 group">
+                    <div class="w-12 h-12 bg-brand-900/50 rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <svg class="w-6 h-6 text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Cloud Architecture</h3>
+                    <p class="text-slate-400">Scalable AWS/Azure infrastructure. We ensure your backend handles traffic spikes effortlessly.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats / Trust Section -->
+    <section class="py-16 border-y border-slate-800 bg-brand-darker">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div>
+                    <div class="text-4xl font-bold text-white">50+</div>
+                    <div class="text-sm text-brand-400 mt-1 uppercase tracking-wide">Projects Delivered</div>
+                </div>
+                <div>
+                    <div class="text-4xl font-bold text-white">99.9%</div>
+                    <div class="text-sm text-brand-400 mt-1 uppercase tracking-wide">Uptime Guarantee</div>
+                </div>
+                <div>
+                    <div class="text-4xl font-bold text-white">2x</div>
+                    <div class="text-sm text-brand-400 mt-1 uppercase tracking-wide">Faster Load Times</div>
+                </div>
+                <div>
+                    <div class="text-4xl font-bold text-white">24/7</div>
+                    <div class="text-sm text-brand-400 mt-1 uppercase tracking-wide">Support Cycle</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 relative overflow-hidden">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="bg-slate-900 border border-slate-800 rounded-2xl p-8 md:p-12 shadow-2xl">
+                <div class="text-center mb-10">
+                    <h2 class="text-3xl font-bold text-white mb-4">Let's Optimize Your Business</h2>
+                    <p class="text-slate-400">Tell us about your project. We'll analyze it and return a proposal within 24 hours.</p>
+                </div>
+                
+                <form onsubmit="handleSubmit(event)" class="space-y-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-sm font-medium text-slate-300 mb-2">Name</label>
+                            <input type="text" required class="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition-colors" placeholder="John Doe">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-slate-300 mb-2">Email</label>
+                            <input type="email" required class="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition-colors" placeholder="john@company.com">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-slate-300 mb-2">Project Type</label>
+                        <select class="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition-colors">
+                            <option>Web Development</option>
+                            <option>Mobile App</option>
+                            <option>Cloud/DevOps</option>
+                            <option>Consulting</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-slate-300 mb-2">Message</label>
+                        <textarea rows="4" required class="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition-colors" placeholder="Tell us about your goals..."></textarea>
+                    </div>
+                    <button type="submit" class="w-full bg-brand-600 hover:bg-brand-500 text-white font-bold py-4 rounded-lg transition-all transform hover:-translate-y-1 shadow-lg shadow-brand-500/20">
+                        Send Inquiry
+                    </button>
+                </form>
+                
+                <!-- Success Message (Hidden by default) -->
+                <div id="success-msg" class="hidden mt-6 p-4 bg-green-500/10 border border-green-500/20 text-green-400 rounded-lg text-center">
+                    Message received! Our team will be in touch shortly.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-brand-darker border-t border-slate-800 pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="flex items-center gap-2 mb-4 md:mb-0">
+                    <svg class="w-6 h-6 text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+                    <span class="text-xl font-bold text-white tracking-tighter">Opti<span class="text-brand-400">Code</span></span>
+                </div>
+                <div class="text-slate-500 text-sm">
+                    &copy; 2025 OptiCode Solutions. All rights reserved.
+                </div>
+                <div class="flex space-x-6 mt-4 md:mt-0">
+                    <a href="#" class="text-slate-500 hover:text-white transition-colors">Twitter</a>
+                    <a href="#" class="text-slate-500 hover:text-white transition-colors">LinkedIn</a>
+                    <a href="#" class="text-slate-500 hover:text-white transition-colors">GitHub</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        function toggleMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('open');
+        }
+
+        // Simple Form Handler
+        function handleSubmit(e) {
+            e.preventDefault();
+            const btn = e.target.querySelector('button');
+            const originalText = btn.innerText;
+            
+            btn.disabled = true;
+            btn.innerText = 'Sending...';
+            
+            setTimeout(() => {
+                document.getElementById('success-msg').classList.remove('hidden');
+                e.target.reset();
+                btn.innerText = 'Sent!';
+                btn.classList.add('bg-green-600');
+                
+                setTimeout(() => {
+                    btn.disabled = false;
+                    btn.innerText = originalText;
+                    btn.classList.remove('bg-green-600');
+                    document.getElementById('success-msg').classList.add('hidden');
+                }, 3000);
+            }, 1000);
+        }
+    </script>
+</body>
+</html>
