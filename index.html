@@ -73,7 +73,7 @@
 
     <!-- Splash Screen -->
     <div id="splash-screen"
-        class="fixed inset-0 z-[100] bg-slate-950 flex flex-col items-center justify-center transition-opacity duration-700 ease-out font-nunito">
+        class="fixed inset-0 z-[100] bg-slate-950 flex flex-col items-start justify-center pl-10 md:items-center md:justify-center md:pl-0 transition-opacity duration-700 ease-out font-nunito">
 
         <div id="logo-container" class="relative flex items-center justify-center group">
             <div class="w-32 h-32 z-10 flex-shrink-0 flex items-center justify-center glow-effect">
@@ -83,13 +83,13 @@
                         max-w-0 opacity-0 -ml-6
                         transition-all duration-[2000ms] ease-luxury
                         [.active_&]:max-w-[400px] [.active_&]:opacity-100">
-                <div class="text-[56px] font-extrabold text-white tracking-tighter whitespace-nowrap
+                <div class="text-4xl md:text-[56px] font-extrabold text-white tracking-tighter whitespace-nowrap
                             transform -translate-x-10 
                             transition-transform duration-[2000ms] ease-luxury
                             [.active_&]:translate-x-0">
                     OptiCode
                 </div>
-                <div class="text-base text-slate-400 font-bold tracking-widest whitespace-nowrap pl-1 -mt-1
+                <div class="text-sm md:text-base text-slate-400 font-bold tracking-widest whitespace-nowrap pl-1 -mt-1
                             opacity-0 transform -translate-x-5
                             transition-all duration-[2000ms] ease-luxury delay-150
                             [.active_&]:opacity-100 [.active_&]:translate-x-0">
