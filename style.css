@@ -1,0 +1,46 @@
+/* Custom Background Pattern */
+.code-bg {
+    background-image: radial-gradient(#1e293b 1px, transparent 1px);
+    background-size: 20px 20px;
+}
+
+/* Glow Effect for Hero Snippet */
+.glow {
+    box-shadow: 0 0 20px rgba(56, 189, 248, 0.15);
+}
+
+/* Mobile Menu Transitions */
+#mobile-menu {
+    transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+}
+
+#mobile-menu.open {
+    max-height: 400px;
+    opacity: 1;
+}
+
+/* Splash Screen Transitions - Critical for smooth loading */
+.fade-out {
+    opacity: 0 !important;
+    pointer-events: none;
+}
+
+/* Custom Glow */
+.glow-effect {
+    filter: drop-shadow(0 0 30px rgba(6, 182, 212, 0.5));
+}
+
+/* Scroll Reveal Animation */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease-out;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}

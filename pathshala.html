@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pathshala — Complete School Management System | Opticode</title>
+    <meta name="description"
+        content="Manage attendance, exams, fees, homework and communication from one platform. Pathshala is the AI-powered school ERP for modern institutions.">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=JetBrains+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind = {
+            config: {
+                theme: {
+                    extend: {
+                        colors: {
+                            brand: { 400: '#38bdf8', 500: '#0ea5e9', 600: '#0284c7', 900: '#0c4a6e', dark: '#0f172a', darker: '#020617' }
+                        },
+                        fontFamily: { sans: ['Inter', 'sans-serif'], mono: ['JetBrains Mono', 'monospace'] }
+                    }
+                }
+            }
+        }
+    </script>
+    <script src="script.js" defer></script>
+</head>
+
+<body class="bg-slate-950 text-slate-300 font-sans antialiased overflow-x-hidden">
+
+    <!-- Nav -->
+    <nav class="fixed w-full z-50 bg-slate-950/90 backdrop-blur-md border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <a href="index.html" class="flex-shrink-0 cursor-pointer">
+                    <span class="text-2xl font-bold text-white tracking-tighter flex items-center gap-2">
+                        <img src="logo.png" class="w-12 h-12 object-contain" alt="OptiCode">
+                        Opti<span class="text-cyan-400">Code</span>
+                    </span>
+                </a>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="index.html"
+                            class="hover:text-cyan-400 transition-colors px-3 py-2 text-sm font-medium">Home</a>
+                        <button onclick="openModal()"
+                            class="bg-cyan-600 hover:bg-cyan-500 text-white px-5 py-2 rounded-full text-sm font-medium transition-all shadow-lg shadow-cyan-500/20">Try
+                            Pathshala Free</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+            <div
+                class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-900/30 border border-cyan-500/30 text-cyan-400 text-sm font-mono mb-8">
+                <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
+                AI-Powered School ERP
+            </div>
+            <h1 class="text-5xl md:text-7xl font-bold text-white tracking-tight mb-6">
+                The Operating System for <br>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-indigo-500">Modern
+                    Schools</span>
+            </h1>
+            <p class="mt-4 max-w-2xl mx-auto text-xl text-slate-400 mb-10">
+                From admissions to alumni, manage your entire campus with one unified platform.
+            </p>
+            <button onclick="openModal()"
+                class="px-8 py-4 bg-cyan-600 text-white font-bold rounded-lg hover:bg-cyan-500 transition-colors shadow-lg shadow-cyan-500/20">
+                Get Started for Free
+            </button>
+        </div>
+    </section>
+
+    <!-- Admin Section -->
+    <section class="py-20 bg-slate-900">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="relative rounded-xl overflow-hidden shadow-2xl border border-slate-700">
+                    <img src="images/admin-dashboard.png" alt="Admin Dashboard" class="w-full">
+                </div>
+                <div>
+                    <h2 class="text-3xl font-bold text-white mb-6">Admin Command Center</h2>
+                    <p class="text-slate-400 mb-6 text-lg">Gain total visibility over finances, staff performance, and
+                        student enrollment.</p>
+                    <ul class="space-y-4 text-slate-300">
+                        <li class="flex items-center gap-3"><span class="text-cyan-400">✓</span> Real-time Financial
+                            Reports</li>
+                        <li class="flex items-center gap-3"><span class="text-cyan-400">✓</span> Staff Attendance
+                            Tracking</li>
+                        <li class="flex items-center gap-3"><span class="text-cyan-400">✓</span> Automated Fee Reminders
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Teacher Section -->
+    <section class="py-20 bg-slate-950">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center lg:flex-row-reverse">
+                <div class="order-2 lg:order-1">
+                    <h2 class="text-3xl font-bold text-white mb-6">Empower Your Teachers</h2>
+                    <p class="text-slate-400 mb-6 text-lg">Reduce administrative burden so teachers can focus on
+                        teaching.</p>
+                    <ul class="space-y-4 text-slate-300">
+                        <li class="flex items-center gap-3"><span class="text-cyan-400">✓</span> One-Click Attendance
+                        </li>
+                        <li class="flex items-center gap-3"><span class="text-cyan-400">✓</span> AI-Assisted Grading
+                        </li>
+                        <li class="flex items-center gap-3"><span class="text-cyan-400">✓</span> Instant Homework alerts
+                        </li>
+                    </ul>
+                </div>
+                <div class="order-1 lg:order-2 relative rounded-xl overflow-hidden shadow-2xl border border-slate-700">
+                    <img src="images/teacher-dashboard.png" alt="Teacher Dashboard" class="w-full">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Student Section -->
+    <section class="py-20 bg-slate-900">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="relative rounded-xl overflow-hidden shadow-2xl border border-slate-700 max-w-sm mx-auto">
+                    <img src="images/student-dashboard.png" alt="Student Mobile App" class="w-full">
+                </div>
+                <div>
+                    <h2 class="text-3xl font-bold text-white mb-6">A Portal Students Love</h2>
+                    <p class="text-slate-400 mb-6 text-lg">Everything a student needs, right in their pocket.</p>
+                    <ul class="space-y-4 text-slate-300">
+                        <li class="flex items-center gap-3"><span class="text-cyan-400">✓</span> Check Results instantly
+                        </li>
+                        <li class="flex items-center gap-3"><span class="text-cyan-400">✓</span> Download Study
+                            Materials</li>
+                        <li class="flex items-center gap-3"><span class="text-cyan-400">✓</span> Fee Payment History
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mobile/Install Section -->
+    <section class="py-20 bg-slate-950 text-center">
+        <div class="max-w-4xl mx-auto px-4">
+            <h2 class="text-3xl font-bold text-white mb-8">Works Offline. Installs instantly.</h2>
+            <div class="relative rounded-xl overflow-hidden shadow-2xl border border-slate-700 max-w-sm mx-auto mb-8">
+                <img src="images/mobile-install.png" alt="PWA Install" class="w-full">
+            </div>
+            <p class="text-slate-400 mb-8">Built as a Progressive Web App (PWA), Pathshala works even with spotty
+                internet connection.</p>
+        </div>
+    </section>
+
+    <footer class="bg-slate-950 border-t border-slate-800 pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+                <div class="col-span-1 md:col-span-2">
+                    <span class="text-2xl font-bold text-white tracking-tighter flex items-center gap-2 mb-4">
+                        <img src="logo.png" class="w-9 h-9 object-contain" alt="OptiCode">
+                        Opti<span class="text-cyan-400">Code</span>
+                    </span>
+                    <p class="text-slate-400 max-w-xs">Building the digital infrastructure for modern education.</p>
+                </div>
+            </div>
+            <div
+                class="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center bg-slate-950">
+                <div class="text-slate-500 text-sm">
+                    &copy; 2025 OptiCode Solutions. All rights reserved.
+                </div>
+                <div class="flex flex-wrap justify-center gap-6 mt-4 md:mt-0">
+                    <a href="privacy.html" class="text-slate-500 hover:text-white transition-colors text-sm">Privacy</a>
+                    <a href="terms.html" class="text-slate-500 hover:text-white transition-colors text-sm">Terms</a>
+                    <a href="refund.html" class="text-slate-500 hover:text-white transition-colors text-sm">Refunds</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Lead Gen Modal (Same as index) -->
+    <div id="trial-modal" class="fixed inset-0 z-[200] hidden">
+        <div class="absolute inset-0 bg-slate-950/80 backdrop-blur-sm" onclick="closeModal()"></div>
+        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full max-w-md p-4">
+            <div class="bg-slate-900 border border-slate-800 rounded-2xl shadow-2xl p-6 md:p-8 relative">
+                <button onclick="closeModal()" class="absolute top-4 right-4 text-slate-500 hover:text-white"><svg
+                        class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
+                        </path>
+                    </svg></button>
+                <h3 class="text-2xl font-bold text-white mb-2">Start Your Free Trial</h3>
+                <p class="text-slate-400 mb-6">Enter details for instant access.</p>
+                <form id="lead-form" class="space-y-4">
+                    <input type="text" name="name" required
+                        class="w-full bg-slate-950 border border-slate-700 rounded-lg px-4 py-2.5 text-white"
+                        placeholder="Full Name">
+                    <input type="tel" name="phone" required
+                        class="w-full bg-slate-950 border border-slate-700 rounded-lg px-4 py-2.5 text-white"
+                        placeholder="Phone">
+                    <input type="text" name="school"
+                        class="w-full bg-slate-950 border border-slate-700 rounded-lg px-4 py-2.5 text-white"
+                        placeholder="School Name (Optional)">
+                    <button type="submit" class="w-full bg-cyan-600 text-white font-bold py-3.5 rounded-lg mt-2">Unlock
+                        Access</button>
+                </form>
+                <div id="lead-success"
+                    class="hidden absolute inset-0 bg-slate-900 rounded-2xl flex flex-col items-center justify-center text-center p-6 z-10">
+                    <h3 class="text-xl font-bold text-white mb-2">Credentials Sent!</h3>
+                    <p class="text-slate-400 mb-4">Redirecting you to dashboard...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
