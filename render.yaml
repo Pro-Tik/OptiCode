@@ -1,0 +1,28 @@
+# Render Blueprint Configuration
+# Deploy with: https://render.com/docs/infrastructure-as-code
+
+services:
+  - type: web
+    name: opticode-api
+    runtime: docker
+    region: oregon
+    plan: free
+    branch: main
+    dockerfilePath: ./backend/Dockerfile
+    dockerContext: ./backend
+    healthCheckPath: /api/health
+    envVars:
+      - key: FLASK_ENV
+        value: production
+      - key: SECRET_KEY
+        generateValue: true
+      - key: DATABASE_URL
+        value: sqlite:////data/opticode.db
+      - key: CORS_ORIGINS
+        value: https://opticode.onrender.com
+      - key: PYTHON_VERSION
+        value: "3.11"
+    disk:
+      name: opticode-data
+      mountPath: /data
+      sizeGB: 1

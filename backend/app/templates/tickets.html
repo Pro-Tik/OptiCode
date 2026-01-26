@@ -1,0 +1,132 @@
+{% extends "base.html" %}
+
+{% block title %}Tickets{% endblock %}
+
+{% block content %}
+<div class="space-y-6">
+    <!-- Header -->
+    <div class="flex items-center justify-between">
+        <div>
+            <h1 class="text-2xl font-bold text-white">Tickets</h1>
+            <p class="text-slate-500 mt-1">Manage customer requests and inquiries.</p>
+        </div>
+    </div>
+
+    <!-- Filter Tabs -->
+    <div class="flex items-center gap-2 border-b border-slate-800 pb-4">
+        <a href="{{ url_for('admin.tickets', status='all') }}"
+            class="px-4 py-2 rounded-lg text-sm font-medium transition-colors
+                  {% if status_filter == 'all' %}bg-slate-800 text-white{% else %}text-slate-400 hover:text-white{% endif %}">
+            All
+        </a>
+        <a href="{{ url_for('admin.tickets', status='Pending') }}"
+            class="px-4 py-2 rounded-lg text-sm font-medium transition-colors
+                  {% if status_filter == 'Pending' %}bg-yellow-500/10 text-yellow-400{% else %}text-slate-400 hover:text-white{% endif %}">
+            Pending
+        </a>
+        <a href="{{ url_for('admin.tickets', status='Accepted') }}"
+            class="px-4 py-2 rounded-lg text-sm font-medium transition-colors
+                  {% if status_filter == 'Accepted' %}bg-green-500/10 text-green-400{% else %}text-slate-400 hover:text-white{% endif %}">
+            Accepted
+        </a>
+        <a href="{{ url_for('admin.tickets', status='Running') }}"
+            class="px-4 py-2 rounded-lg text-sm font-medium transition-colors
+                  {% if status_filter == 'Running' %}bg-blue-500/10 text-blue-400{% else %}text-slate-400 hover:text-white{% endif %}">
+            Running
+        </a>
+        <a href="{{ url_for('admin.tickets', status='Completed') }}"
+            class="px-4 py-2 rounded-lg text-sm font-medium transition-colors
+                  {% if status_filter == 'Completed' %}bg-slate-500/10 text-slate-400{% else %}text-slate-400 hover:text-white{% endif %}">
+            Completed
+        </a>
+    </div>
+
+    <!-- Tickets Table -->
+    <div class="bg-slate-900 border border-slate-800 rounded-xl overflow-hidden">
+        <table class="w-full">
+            <thead class="bg-slate-800/50">
+                <tr>
+                    <th class="px-6 py-4 text-left text-xs font-semibold text-slate-400 uppercase tracking-wider">Ticket
+                    </th>
+                    <th class="px-6 py-4 text-left text-xs font-semibold text-slate-400 uppercase tracking-wider">
+                        Customer</th>
+                    <th class="px-6 py-4 text-left text-xs font-semibold text-slate-400 uppercase tracking-wider">
+                        Project Type</th>
+                    <th class="px-6 py-4 text-left text-xs font-semibold text-slate-400 uppercase tracking-wider">Status
+                    </th>
+                    <th class="px-6 py-4 text-left text-xs font-semibold text-slate-400 uppercase tracking-wider">Date
+                    </th>
+                    <th class="px-6 py-4 text-right text-xs font-semibold text-slate-400 uppercase tracking-wider">
+                        Action</th>
+                </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-800">
+                {% for ticket in tickets.items %}
+                <tr class="hover:bg-slate-800/30 transition-colors">
+                    <td class="px-6 py-4">
+                        <span class="font-mono text-cyan-400 text-sm">{{ ticket.ticket_id }}</span>
+                    </td>
+                    <td class="px-6 py-4">
+                        <div>
+                            <p class="text-white font-medium">{{ ticket.name }}</p>
+                            <p class="text-slate-500 text-sm">{{ ticket.email }}</p>
+                        </div>
+                    </td>
+                    <td class="px-6 py-4 text-slate-300">
+                        {{ ticket.project_type }}
+                    </td>
+                    <td class="px-6 py-4">
+                        <span class="px-2 py-1 rounded text-xs font-bold
+                            {% if ticket.status == 'Pending' %}bg-yellow-500/10 text-yellow-400
+                            {% elif ticket.status == 'Accepted' %}bg-green-500/10 text-green-400
+                            {% elif ticket.status == 'Running' %}bg-blue-500/10 text-blue-400
+                            {% elif ticket.status == 'Completed' %}bg-slate-500/10 text-slate-400
+                            {% else %}bg-red-500/10 text-red-400{% endif %}">
+                            {{ ticket.status }}
+                        </span>
+                    </td>
+                    <td class="px-6 py-4 text-slate-500 text-sm">
+                        {{ ticket.created_at.strftime('%b %d, %Y') }}
+                    </td>
+                    <td class="px-6 py-4 text-right">
+                        <a href="{{ url_for('admin.ticket_detail', ticket_id=ticket.ticket_id) }}"
+                            class="text-cyan-400 hover:text-cyan-300 text-sm font-medium">
+                            View →
+                        </a>
+                    </td>
+                </tr>
+                {% else %}
+                <tr>
+                    <td colspan="6" class="px-6 py-12 text-center text-slate-500">
+                        No tickets found.
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Pagination -->
+    {% if tickets.pages > 1 %}
+    <div class="flex items-center justify-center gap-2">
+        {% if tickets.has_prev %}
+        <a href="{{ url_for('admin.tickets', status=status_filter, page=tickets.prev_num) }}"
+            class="px-4 py-2 bg-slate-800 text-white rounded-lg hover:bg-slate-700 transition-colors">
+            Previous
+        </a>
+        {% endif %}
+
+        <span class="text-slate-500 px-4">
+            Page {{ tickets.page }} of {{ tickets.pages }}
+        </span>
+
+        {% if tickets.has_next %}
+        <a href="{{ url_for('admin.tickets', status=status_filter, page=tickets.next_num) }}"
+            class="px-4 py-2 bg-slate-800 text-white rounded-lg hover:bg-slate-700 transition-colors">
+            Next
+        </a>
+        {% endif %}
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

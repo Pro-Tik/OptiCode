@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Automated Code Cleaner | Opticode</title>
+    <link rel="icon" type="image/png" href="/static/logo.png">
+    <meta name="description"
+        content="Automate your code cleaning process with Opticode. The best Automated Code Cleaner for modern dev teams.">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=JetBrains+Mono:wght@400;700&family=Nunito:wght@700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <script>
+        tailwind = {
+            config: {
+                theme: {
+                    extend: {
+                        colors: {
+                            brand: {
+                                400: '#38bdf8',
+                                500: '#0ea5e9',
+                                600: '#0284c7',
+                                900: '#0c4a6e',
+                                dark: '#0f172a',
+                                darker: '#020617'
+                            }
+                        },
+                        fontFamily: {
+                            sans: ['Inter', 'sans-serif'],
+                            mono: ['JetBrains Mono', 'monospace'],
+                            nunito: ['Nunito', 'sans-serif']
+                        },
+                        transitionTimingFunction: {
+                            'luxury': 'cubic-bezier(0.19, 1, 0.22, 1)',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="/static/js/script.js" defer></script>
+</head>
+
+<body class="bg-slate-950 text-slate-300 font-sans antialiased overflow-hidden">
+    <div id="splash-screen"
+        class="fixed inset-0 z-[100] bg-slate-950 flex flex-col items-center justify-center transition-opacity duration-700 ease-out font-nunito">
+
+        <div id="logo-container" class="relative flex items-center justify-center group">
+
+            <div class="w-32 h-32 z-10 flex-shrink-0 flex items-center justify-center glow-effect">
+                <img src="/static/logo.png" alt="OptiCode Logo" class="w-full h-full object-contain block">
+            </div>
+
+            <div class="flex flex-col justify-center overflow-hidden 
+                        max-w-0 opacity-0 -ml-6
+                        transition-all duration-[2000ms] ease-luxury
+                        [.active_&]:max-w-[400px] [.active_&]:opacity-100">
+
+                <div class="text-[56px] font-extrabold text-white tracking-tighter whitespace-nowrap
+                            transform -translate-x-10 
+                            transition-transform duration-[2000ms] ease-luxury
+                            [.active_&]:translate-x-0">
+                    OptiCode
+                </div>
+
+                <div class="text-base text-slate-400 font-bold tracking-widest whitespace-nowrap pl-1 mt-2
+                            opacity-0 transform -translate-x-5
+                            transition-all duration-[2000ms] ease-luxury delay-150
+                            [.active_&]:opacity-100 [.active_&]:translate-x-0">
+                    Software Solutions
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+    <div id="app-content" class="opacity-0 transition-opacity duration-1000">
+        <nav class="fixed w-full z-50 bg-slate-950/90 backdrop-blur-md border-b border-slate-800">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex items-center justify-between h-20">
+                    <div class="flex items-center justify-between h-20">
+                        <a href="index.html"
+                            class="flex items-center gap-2 text-2xl font-bold text-white tracking-tighter">
+                            <img src="/static/logo.png" class="w-8 h-8 object-contain" alt="OptiCode">
+                            <span>Opti<span class="text-cyan-400">Code</span></span>
+                        </a>
+                    </div>
+                </div>
+        </nav>
+        <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden text-center">
+            <div class="max-w-7xl mx-auto px-4 relative z-10">
+                <h1 class="text-5xl md:text-7xl font-bold text-white tracking-tight mb-6">
+                    Your <span class="text-cyan-400">Automated Code Cleaner</span><br> for Faster Shipping
+                </h1>
+                <p class="mt-4 max-w-2xl mx-auto text-xl text-slate-400 mb-10">
+                    Keep your codebase spotless with our AI-driven engine.
+                </p>
+                <button onclick="openModal()"
+                    class="px-8 py-4 bg-cyan-600 text-white font-bold rounded-lg shadow-lg shadow-cyan-500/20">
+                    Start Free Trial
+                </button>
+            </div>
+        </section>
+        <!-- Modal Placeholders -->
+        <div id="trial-modal" class="fixed inset-0 z-[200] hidden">
+            <div class="absolute inset-0 bg-slate-950/80 backdrop-blur-sm" onclick="closeModal()"></div>
+            <div
+                class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full max-w-md p-4 bg-slate-900 border border-slate-800 rounded-2xl p-6">
+                <button onclick="closeModal()" class="absolute top-4 right-4 text-slate-500">X</button>
+                <h3 class="text-2xl font-bold text-white mb-4">Get Cleaner Code</h3>
+                <form id="lead-form" class="space-y-4">
+                    <input type="text" required class="w-full bg-slate-950 border border-slate-700 p-2 text-white"
+                        placeholder="Name">
+                    <button type="submit" class="w-full bg-cyan-600 text-white font-bold py-3 rounded-lg">Start</button>
+                </form>
+                <div id="lead-success" class="hidden text-center text-green-400 mt-4">Success!</div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
